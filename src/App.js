@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { PureComponent } from "react";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import EmojiResult from "./components/EmojiResult";
+import filter from "./utils/filter";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+//Class component
+export default class App extends PureComponent {
+  state = {
+    filteredEmojis: filter("", 20),
+  };
+
+  handleChange = (event) => {
+    this.setState({
+      filteredEmojis: filter(event.target.value, 20),
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <SearchBar onChange={this.handleChange} />
+        <EmojiResult emojiData={this.state.filteredEmojis} />
+      </div>
+    );
+  }
 }
-
-export default App;
