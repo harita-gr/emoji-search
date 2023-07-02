@@ -16,7 +16,7 @@ https://github.com/harita-gr/emoji-search/assets/61909695/0f89f4f9-2769-4f48-833
 
 ---
 ### Hosted at
---
+https://voluble-queijadas-8114b0.netlify.app/
 
 ---
 ### Author
